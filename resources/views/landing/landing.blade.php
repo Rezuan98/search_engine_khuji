@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> @yield('keyTitle')</title>
     <link rel="stylesheet" href="{{asset('css/custom.css')}}">
+    <link rel="stylesheet" href="{{asset('css/pagination.css')}}">
     <link rel="stylesheet" href="{{asset('css/custom2.css')}}">
     <link rel="stylesheet" href="{{asset('css/navbar.css')}}">
     <link rel="stylesheet" href="{{asset('css/sidebar.css')}}">
     <link rel="stylesheet" href="{{asset('bootstrap/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{ asset('css/preloader.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/latest/css/all.min.css">
+
    
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-EXAMPLE_HASH" crossorigin="anonymous" />
    
@@ -53,6 +56,7 @@ function hideLoading() {
 
 
         </script>
+<script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
         
 <script src="{{asset('bootstrap/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('js/custom.js')}}"></script>

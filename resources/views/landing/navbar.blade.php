@@ -62,7 +62,9 @@
             
             <div class="sign-box">
 
-                <a class="nav-link text-white fw-bold text-decoration-none me-4" href="{{url('/login')}}"><i class="fa-solid fa-user-plus"></i></a>
+                
+
+                <a class="nav-link text-white fw-bold text-decoration-none me-4" href="{{url('/login')}}"> <i class="fas fa-sign-in-alt" style="color: #d3dcdf; font-size: 1.5rem;"></i></a>
             </div>
         @endif
     </div>

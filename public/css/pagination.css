@@ -1,0 +1,19 @@
+/* Custom CSS for pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+}
+
+/* Target the SVG icons within the pagination links */
+.pagination .page-item .page-link svg {
+    width: 1em !important;
+    height: 1em !important;
+    fill: currentColor; /* Inherit color */
+}
+
+/* Optional: Adjust size of pagination arrows specifically */
+.pagination .page-item:first-child .page-link svg, /* Previous arrow */
+.pagination .page-item:last-child .page-link svg { /* Next arrow */
+    width: 0.8em !important;
+    height: 0.8em !important;
+}

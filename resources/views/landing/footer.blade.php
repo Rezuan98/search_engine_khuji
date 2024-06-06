@@ -2,44 +2,37 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-4">
-                <h3>Visit Our Center</h3>
-                <h4>About Our Company</h4>
+                <h5>Visit Our Center</h5>
+                <h6>About Our Company</h6>
                 <ul>
                     <li>OUr offerings</li>
                     <li>newsrooms</li>
-                    <li>investors</li>
-                    <li>blog</li>
-                    <li>careers</li>
-                    <li>gift cards</li>
+                   
+                   
 
                 </ul>
             
             </div>
             <div class="col-lg-4">
 
-                <h3>Rules and Regulations</h3>
-                <h4>For your safety</h4>
+                <h5>Rules and Regulations</h6>
+                <h6>For your safety</h6>
                 <ul>
                     <li>OUr offerings</li>
                     <li>newsrooms</li>
-                    <li>investors</li>
-                    <li>blog</li>
-                    <li>careers</li>
-                    <li>gift cards</li>
+                   
+                    
 
     
             </div>
             <div class="col-lg-4">
-                <h3>Find Us On</h3>
-                <h4>Many kind of social platform</h4>
+                <h5>Find Us On</h5>
+                <h6>Many kind of social platform</h6>
                 <ul>
                     <li>OUr offerings</li>
                     <li>newsrooms</li>
                     <li>investors</li>
-                    <li>blog</li>
-                    <li>careers</li>
-                    <li>gift cards</li>
-
+                   
     
             </div>
         </div>

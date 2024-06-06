@@ -80,46 +80,24 @@ public function storeData(Request $request)
 
     return redirect()->back()->with('success', 'CSV data imported successfully!');
 }
-public function searchData(Request $request){
-
+public function searchData(Request $request)
+{
     $query = $request->input('query');
+    $startTime = microtime(true);
 
-    // Perform search in the database using Eloquent ORM
-    $results = AllData::where('name', 'LIKE', "%$query%")
-                      ->orWhere('email', 'LIKE', "%$query%")
-                      ->orWhere('address', 'LIKE', "%$query%")
-                      ->orWhere('description', 'LIKE', "%$query%")
-                      ->orWhere('website', 'LIKE', "%$query%")
-                      ->orWhere('tag1', 'LIKE', "%$query%")
-                      ->orWhere('tag2', 'LIKE', "%$query%")
-                      ->orWhere('tag3', 'LIKE', "%$query%")
-                      ->orWhere('tag4', 'LIKE', "%$query%")
-                      ->orWhere('tag5', 'LIKE', "%$query%")
-                      ->orWhere('tag6', 'LIKE', "%$query%")
-                      ->orWhere('tag7', 'LIKE', "%$query%")
-                      ->orWhere('tag8', 'LIKE', "%$query%")
-                      ->orWhere('tag9', 'LIKE', "%$query%")
-                      ->orWhere('tag10', 'LIKE', "%$query%")
-                      ->orWhere('tag11', 'LIKE', "%$query%")
-                      ->orWhere('tag12', 'LIKE', "%$query%")
-                      ->orWhere('tag13', 'LIKE', "%$query%")
-                      ->orWhere('tag14', 'LIKE', "%$query%")
-                      ->orWhere('tag15', 'LIKE', "%$query%")
-                      ->orWhere('tag16', 'LIKE', "%$query%")
-                      ->orWhere('tag17', 'LIKE', "%$query%")
-                      ->orWhere('tag18', 'LIKE', "%$query%")
-                      ->orWhere('tag19', 'LIKE', "%$query%")
-                      ->orWhere('tag20', 'LIKE', "%$query%")
-                        
-                      ->paginate(10);
+    // Perform the search with pagination
+    $results = Alldata::whereRaw(
+        "MATCH(name, email, website, address, description, tag1, tag2, tag3, tag4, tag5, tag6, tag7, tag8, tag9, tag10, tag11, tag12, tag13, tag14, tag15, tag16, tag17, tag18, tag19, tag20) 
+        AGAINST(? IN BOOLEAN MODE)", 
+        [$query])->paginate(10);
 
-                    //   dd($results);
+    $searchTime = microtime(true) - $startTime;
 
-    // Pass the search results to the view for display
-    return view('search_results', ['results' => $results]);
-
-
+    return view('search_results', compact('results', 'searchTime', 'query'));
 }
+
+
+
 
 
 public function showData(){

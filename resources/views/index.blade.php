@@ -13,7 +13,7 @@
     <div class="row mt-5">
         <h1>Search On Khuji</h1>
       <form action="{{route('search.data')}}" method="get">
-        <input type="text" name class="form-control"  name="" id="">
+        <input type="text" class="form-control"  name="query" id="">
         <button class="btn btn-success m-3" type="submit">Search</button>
       </form>
        
