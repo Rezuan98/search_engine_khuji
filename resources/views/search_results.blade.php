@@ -59,12 +59,28 @@
                     </div>
                 @endforeach
 
-                <!-- Pagination Links -->
-                <div class="justify-content-center" style="">
-                    {{ $results->appends(['query' => request()->query('query')])->links() }}
-                </div>
+                <!-- Custom Pagination Links -->
+                <div class="d-flex justify-content-center">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            @if ($results->onFirstPage())
+                                <li class="page-item disabled"><span class="page-link">&laquo;</span></li>
+                            @else
+                                <li class="page-item"><a class="page-link" href="{{ $results->previousPageUrl() }}&query={{ $query }}">&laquo;</a></li>
+                            @endif
                 
-               
+                            @for ($i = 1; $i <= $results->lastPage(); $i++)
+                                <li class="page-item {{ $results->currentPage() == $i ? 'active' : '' }}"><a class="page-link" href="{{ $results->url($i) }}&query={{ $query }}">{{ $i }}</a></li>
+                            @endfor
+                
+                            @if ($results->hasMorePages())
+                                <li class="page-item"><a class="page-link" href="{{ $results->nextPageUrl() }}&query={{ $query }}">&raquo;</a></li>
+                            @else
+                                <li class="page-item disabled"><span class="page-link">&raquo;</span></li>
+                            @endif
+                        </ul>
+                    </nav>
+                </div>
             @endif
         </div>
     </div>
@@ -72,25 +88,15 @@
 
 <!-- Add custom CSS for hover effect -->
 <style>
-    /* Custom CSS for pagination */
-.pagination {
-    display: flex;
-    justify-content: center;
-}
-
-/* Target the SVG icons within the pagination links */
-.pagination .page-item .page-link svg {
-    width: 1em !important;
-    height: 1em !important;
-    fill: currentColor; /* Inherit color */
-}
-
-/* Optional: Adjust size of pagination arrows specifically */
-.pagination .page-item:first-child .page-link svg, /* Previous arrow */
-.pagination .page-item:last-child .page-link svg { /* Next arrow */
-    width: 0.8em !important;
-    height: 0.8em !important;
-}
-
+    .result-row:hover {
+        background-color: #f8f9fa;
+    }
+    .result-row a {
+        text-decoration: none;
+    }
+    .result-row a:hover {
+        text-decoration: underline;
+    }
 </style>
+
 @endsection

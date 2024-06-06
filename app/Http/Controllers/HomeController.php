@@ -89,7 +89,7 @@ public function searchData(Request $request)
     $results = Alldata::whereRaw(
         "MATCH(name, email, website, address, description, tag1, tag2, tag3, tag4, tag5, tag6, tag7, tag8, tag9, tag10, tag11, tag12, tag13, tag14, tag15, tag16, tag17, tag18, tag19, tag20) 
         AGAINST(? IN BOOLEAN MODE)", 
-        [$query])->paginate(10);
+        [$query])->paginate(8);
 
     $searchTime = microtime(true) - $startTime;
 
